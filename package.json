@@ -1,0 +1,41 @@
+{
+  "name": "ual-meetone",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "author": {
+    "name": "meet.one",
+    "url": "https://meet.one"
+  },
+  "contributors": [
+    "John Trump"
+  ],
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "watch": "tsc -w",
+    "clean-build": "rm -rf dist && yarn build",
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "test": "jest"
+  },
+  "dependencies": {
+    "meet-bridge": "^2.0.2-release",
+    "universal-authenticator-library": "0.1.0"
+  },
+  "devDependencies": {
+    "@blockone/tslint-config-blockone": "^3.0.0",
+    "@types/jest": "^24.0.9",
+    "jest": "^24.1.0",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.13.0",
+    "typescript": "^3.3.3333"
+  },
+  "description": "UAL Authenticator for Meet.One mobile app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EOSIO/ual-meetone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EOSIO/ual-meetone/issues"
+  },
+  "homepage": "https://github.com/EOSIO/ual-meetone#readme"
+}
