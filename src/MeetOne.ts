@@ -43,6 +43,11 @@ export class MeetOne extends Authenticator {
       return false
     }
 
+    for (const chain of this.chains) {
+      if (!this.supportedChains.hasOwnProperty(chain.chainId)) {
+        return false
+      }
+    }
     return true
   }
 
