@@ -33,16 +33,6 @@ export class MeetOne extends Authenticator {
     super(chains)
   }
 
-  private isMeetOneReady(): boolean {
-    // @ts-ignore
-    if (window.scatter && window.scatter.isInject) {
-      return true
-    } else {
-      // @ts-ignore
-      return false
-    }
-  }
-
   private supportsAllChains(): boolean {
     if (this.chains.length < 1) {
       return false
@@ -63,7 +53,8 @@ export class MeetOne extends Authenticator {
   public async init(): Promise<void> {
     this.meetoneIsLoading = true
     try {
-      if (!this.isMeetOneReady()) {
+      // @ts-ignore
+      if (window.scatter && !window.scatter.isInject) {
         throw new Error('Unable to connect')
       }
     } catch (e) {
@@ -96,7 +87,8 @@ export class MeetOne extends Authenticator {
   }
 
   public shouldRender(): boolean {
-    if (this.supportsAllChains() && this.isMeetOneReady() && this.isMobile()) {
+    // @ts-ignore
+    if (this.supportsAllChains() && this.isMeetOneWebview()) {
       return true
     }
     return false
@@ -168,12 +160,9 @@ export class MeetOne extends Authenticator {
     return false
   }
 
-  public isMobile(): boolean {
+  public isMeetOneWebview(): boolean {
     const userAgent = window.navigator.userAgent
-    const isIOS = userAgent.includes('iPhone') || userAgent.includes('iPad')
-    const isMobile = userAgent.includes('Mobile')
-    const isAndroid = userAgent.includes('Android')
-
-    return isIOS || isMobile || isAndroid
+    return userAgent.toLowerCase().includes('meet.one')
   }
+
 }
