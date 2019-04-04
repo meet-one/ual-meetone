@@ -1,8 +1,9 @@
 import { Ledger } from 'ual-ledger'
 import { Lynx } from 'ual-lynx'
 import { Scatter } from 'ual-scatter'
+import { TokenPocket } from 'ual-token-pocket'
 // `before we publish the library , we need use `npm link ual-meetone`
-// import { MeetOne } from 'ual-meetone'
+import { MeetOne } from 'ual-meetone'
 import { UALProvider, withUAL } from 'ual-reactjs-renderer'
 
 import { JsonRpc } from 'eosjs'
@@ -179,10 +180,11 @@ const appName = 'My App'
 const lynx = new Lynx([exampleNet])
 const ledger = new Ledger([exampleNet])
 const scatter = new Scatter([exampleNet], { appName })
-// const meetone = new MeetOne([exampleNet])
+const meetone = new MeetOne([exampleNet])
+const tp = new TokenPocket([exampleNet])
 
 ReactDOM.render(
-  <UALProvider chains={[exampleNet]} authenticators={[ledger, lynx, scatter]} appName={'My App'}>
+  <UALProvider chains={[exampleNet]} authenticators={[ledger, lynx, scatter, tp]} appName={'My App'}>
     <TestAppConsumer />
   </UALProvider>,
   document.getElementById('ual-app') as HTMLElement,

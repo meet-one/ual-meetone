@@ -13,7 +13,7 @@ import { MeetOneUser } from './MeetOneUser'
 import { UALMeetOneError } from './UALMeetOneError'
 
 import MeetBridge from 'meet-bridge'
-const mt = new MeetBridge();
+const mt = new MeetBridge()
 
 export class MeetOne extends Authenticator {
   private users: MeetOneUser[] = []
@@ -36,7 +36,7 @@ export class MeetOne extends Authenticator {
   private isMeetOneReady(): boolean {
     // @ts-ignore
     if (window.scatter && window.scatter.isInject) {
-      return true;
+      return true
     } else {
       // @ts-ignore
       return false
@@ -97,7 +97,7 @@ export class MeetOne extends Authenticator {
 
   public shouldRender(): boolean {
     if (this.supportsAllChains() && this.isMeetOneReady() && this.isMobile()) {
-      return true;
+      return true
     }
     return false
   }

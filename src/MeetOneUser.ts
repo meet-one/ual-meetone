@@ -10,7 +10,7 @@ import { Wallet } from './interfaces'
 import { UALMeetOneError } from './UALMeetOneError'
 
 import MeetBridge from 'meet-bridge'
-const mt = new MeetBridge();
+const mt = new MeetBridge()
 
 export class MeetOneUser extends User {
   private wallet: Wallet
@@ -35,7 +35,7 @@ export class MeetOneUser extends User {
   ): Promise<SignTransactionResponse> {
     try {
       // @ts-ignore
-      let res = await mt.invokeTransaction({
+      const res = await mt.invokeTransaction({
         ...transaction,
         // @ts-ignore
         options: config
@@ -68,7 +68,7 @@ export class MeetOneUser extends User {
 
     try {
       // @ts-ignore
-      let res = await mt.invokeSignature({ whatfor: 'Universal Authenticator', data, publicKey, isArbitrary: true })
+      const res = await mt.invokeSignature({ whatfor: 'Universal Authenticator', data, publicKey, isArbitrary: true })
       if (res.code === 0) {
         return res.data.signature
       } else {
