@@ -1,6 +1,6 @@
 {
   "name": "ual-meetone",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "license": "MIT",
   "author": {
@@ -32,10 +32,10 @@
   "description": "UAL Authenticator for Meet.One mobile app",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EOSIO/ual-meetone.git"
+    "url": "git+https://github.com/meet-one/ual-meetone.git"
   },
   "bugs": {
-    "url": "https://github.com/EOSIO/ual-meetone/issues"
+    "url": "https://github.com/meet-one/ual-meetone/issues"
   },
-  "homepage": "https://github.com/EOSIO/ual-meetone#readme"
+  "homepage": "https://github.com/meet-one/ual-meetone#readme"
 }
